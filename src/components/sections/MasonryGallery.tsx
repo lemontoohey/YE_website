@@ -1,9 +1,30 @@
 "use client";
 
-import { useState, useMemo } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useRef, useState, useMemo } from "react";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { LuxeImage } from "@/components/ui";
 import { SITE_CONTENT } from "@/lib/data";
+
+function ParallaxImage({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const y = useTransform(scrollYProgress, [0, 0.5, 1], [0, 24, 0]);
+
+  return (
+    <motion.div ref={ref} style={{ y }} className={className}>
+      {children}
+    </motion.div>
+  );
+}
 
 const CATEGORIES = [
   "All",
@@ -61,15 +82,17 @@ export function MasonryGallery() {
               viewport={{ once: true, margin: "0px 0px -50px 0px" }}
               className="group mb-4 break-inside-avoid"
             >
-              <div className="relative aspect-[4/5] w-full overflow-hidden">
-                <LuxeImage
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-300 ease-out group-hover:scale-105"
-                />
-              </div>
+              <ParallaxImage>
+                <div className="relative aspect-[4/5] w-full overflow-hidden">
+                  <LuxeImage
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-300 ease-out group-hover:scale-105"
+                  />
+                </div>
+              </ParallaxImage>
             </motion.div>
           ))}
         </AnimatePresence>
