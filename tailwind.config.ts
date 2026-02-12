@@ -45,7 +45,6 @@ const config: Config = {
         heading: ["var(--font-bodoni)", "Bodoni Moda", "Georgia", "serif"],
         body: ["var(--font-cormorant)", "Georgia", "serif"],
         mono: ["var(--font-courier-prime)", "Courier New", "monospace"],
-        gta: ["var(--font-gta)", "Impact", "sans-serif"],
       },
       spacing: {
         "section": "clamp(4rem, 10vw, 8rem)",

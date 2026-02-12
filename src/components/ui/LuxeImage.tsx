@@ -3,7 +3,7 @@
 import Image, { ImageProps } from "next/image";
 import { motion } from "framer-motion";
 
-export function LuxeImage({ className, ...props }: ImageProps) {
+export function LuxeImage({ className, alt = "", ...props }: ImageProps) {
   return (
     <motion.div
       className="relative h-full w-full overflow-hidden"
@@ -12,7 +12,7 @@ export function LuxeImage({ className, ...props }: ImageProps) {
       viewport={{ once: true, margin: "0px 0px -50px 0px" }}
       transition={{ duration: 1.2, ease: "easeOut" }}
     >
-      <Image {...props} className={className ?? "object-cover"} />
+      <Image {...props} alt={alt} className={className ?? "object-cover"} />
     </motion.div>
   );
 }

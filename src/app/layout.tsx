@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import {
   Bodoni_Moda,
-  Changa_One,
   Cormorant_Garamond,
   Courier_Prime,
 } from "next/font/google";
@@ -13,13 +12,6 @@ import {
   LenisProvider,
 } from "@/components/layout";
 import { ParticleBackground } from "@/components/ui";
-
-const changaOne = Changa_One({
-  subsets: ["latin"],
-  variable: "--font-gta",
-  weight: ["400"],
-  display: "swap",
-});
 
 const bodoniModa = Bodoni_Moda({
   subsets: ["latin"],
@@ -73,7 +65,7 @@ export default function RootLayout({
         <PhotographerSchema />
       </head>
       <body
-        className={`${changaOne.variable} ${bodoniModa.variable} ${cormorant.variable} ${courierPrime.variable} font-body antialiased`}
+        className={`${bodoniModa.variable} ${cormorant.variable} ${courierPrime.variable} font-body antialiased`}
       >
         <LenisProvider>
           <ParticleBackground />
