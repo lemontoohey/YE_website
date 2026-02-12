@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
+import { useSoundEffect } from "@/hooks/useSoundEffect";
 
 interface MagneticButtonProps {
   children: React.ReactNode;
@@ -20,6 +21,7 @@ export function MagneticButton({
   const springConfig = { stiffness: 300, damping: 25 };
   const xSpring = useSpring(x, springConfig);
   const ySpring = useSpring(y, springConfig);
+  const playThud = useSoundEffect(0.1);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {
     const rect = ref.current?.getBoundingClientRect();
@@ -53,7 +55,8 @@ export function MagneticButton({
       onClick={onClick}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className={`relative overflow-hidden border border-vermillion-500 px-6 py-3 font-heading text-sm tracking-widest text-parchment-100 ${className}`}
+      onMouseEnter={() => playThud()}
+      className={`relative overflow-hidden rounded-full border-[0.5px] border-parchment-100/30 bg-transparent px-6 py-3 font-heading text-sm tracking-widest text-parchment-100 transition-colors duration-300 hover:border-transparent hover:bg-gradient-to-r hover:from-vermillion-500 hover:to-ember-500 hover:text-void-950 ${className}`}
     >
       <motion.span
         className="inline-block"

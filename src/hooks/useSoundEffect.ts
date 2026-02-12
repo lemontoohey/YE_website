@@ -6,7 +6,7 @@ import { useCallback } from "react";
  * Programmatic sub bass thud (from scalar_website).
  * 50Hz sine ramping to 15Hz over 0.6s with lowpass filter.
  */
-function playThud() {
+function playThud(volume = 0.4) {
   if (typeof window === "undefined") return;
   try {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Safari webkitAudioContext
@@ -19,7 +19,7 @@ function playThud() {
     osc.frequency.exponentialRampToValueAtTime(15, ctx.currentTime + 0.6);
     filter.type = "lowpass";
     filter.frequency.value = 80;
-    gain.gain.setValueAtTime(0.4, ctx.currentTime);
+    gain.gain.setValueAtTime(volume, ctx.currentTime);
     gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.6);
     osc.connect(filter);
     filter.connect(gain);
@@ -29,6 +29,9 @@ function playThud() {
   } catch {}
 }
 
-export function useSoundEffect() {
-  return useCallback(playThud, []);
+export function useSoundEffect(volume?: number) {
+  return useCallback(
+    () => playThud(volume ?? 0.4),
+    [volume]
+  );
 }
