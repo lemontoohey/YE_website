@@ -5,6 +5,9 @@ const config: Config = {
     "bg-vermillion-500",
     "bg-ember-500",
     "bg-cream-200",
+    "bg-crime-yellow",
+    "bg-vice-pink",
+    "bg-white",
   ],
   content: [
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -32,6 +35,9 @@ const config: Config = {
         cream: {
           200: "#F5F5F4",
         },
+        "crime-yellow": "#FEF200",
+        "vice-pink": "#FF00CC",
+        "cop-blue": "#0055FF",
         surface: "rgb(248 250 252)",
         onSurface: "rgb(2 6 23)",
       },
@@ -39,6 +45,7 @@ const config: Config = {
         heading: ["var(--font-bodoni)", "Bodoni Moda", "Georgia", "serif"],
         body: ["var(--font-cormorant)", "Georgia", "serif"],
         mono: ["var(--font-courier-prime)", "Courier New", "monospace"],
+        gta: ["var(--font-gta)", "Impact", "sans-serif"],
       },
       spacing: {
         "section": "clamp(4rem, 10vw, 8rem)",

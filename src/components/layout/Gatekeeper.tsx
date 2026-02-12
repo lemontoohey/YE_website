@@ -2,15 +2,16 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { TextDecrypt } from "@/components/ui/TextDecrypt";
-
-const DOCUMENT_TEXT = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`;
+import { Star } from "lucide-react";
+import { useSoundEffect } from "@/hooks/useSoundEffect";
 
 export function Gatekeeper({ children }: { children: React.ReactNode }) {
   const [isEntered, setIsEntered] = useState(false);
   const [isExited, setIsExited] = useState(false);
+  const playThud = useSoundEffect(0.6);
 
-  const handleDeclassify = () => {
+  const handlePressStart = () => {
+    playThud();
     setIsEntered(true);
     setTimeout(() => setIsExited(true), 900);
   };
@@ -27,70 +28,69 @@ export function Gatekeeper({ children }: { children: React.ReactNode }) {
             transition={{ duration: 0.2 }}
             className="fixed inset-0 z-[100] flex flex-col bg-void-950"
           >
-            {/* Top gate */}
             <motion.div
               className="flex flex-1 flex-col overflow-hidden bg-void-950"
               initial={{ y: 0 }}
               animate={{ y: isEntered ? "-100%" : 0 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as const }}
             >
-              <div className="relative flex flex-1 flex-col items-center justify-end px-8 pb-8">
-                <div className="relative w-full max-w-2xl">
-                  <p className="font-mono text-[10px] leading-relaxed text-parchment-100/50">
-                    {DOCUMENT_TEXT}
+              {/* Top Left: Mission Objective */}
+              <div className="absolute left-4 top-4 z-10 sm:left-8 sm:top-8">
+                <div className="bg-black px-4 py-2">
+                  <p className="font-gta text-sm text-crime-yellow sm:text-base">
+                    CURRENT OBJECTIVE: SURVIVE SYDNEY
                   </p>
                 </div>
               </div>
-            </motion.div>
 
-            {/* Center: name + button */}
-            <div className="flex shrink-0 flex-col items-center justify-center gap-4 bg-void-950 py-6">
-              <span
-                className="text-2xl tracking-[0.3em] text-vermillion-500 sm:text-3xl [text-shadow:0_0_20px_rgba(200,62,54,0.4)]"
-              >
-                <TextDecrypt text="JEFFREY EPSTEIN" duration={1.5} />
-              </span>
-              <motion.button
-                type="button"
-                onClick={handleDeclassify}
-                initial={{ opacity: 0 }}
-                animate={{
-                  opacity: 1,
-                  scale: [1, 1.02, 1],
-                }}
-                transition={{
-                  opacity: { delay: 1.0, duration: 0.4 },
-                  scale: {
-                    duration: 2.5,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  },
-                }}
-                whileHover={{
-                  backgroundColor: "#C83E36",
-                  boxShadow: "0px 0px 25px 5px rgba(255, 226, 204, 0.5)",
-                  transition: { type: "spring", stiffness: 300, damping: 20 },
-                }}
-                whileTap={{ scale: 0.98 }}
-                className="bg-vermillion-600 px-8 py-3 font-heading text-sm tracking-widest text-parchment-100"
-              >
-                DECLASSIFY
-              </motion.button>
-            </div>
+              {/* Center Content */}
+              <div className="flex flex-1 flex-col items-center justify-center gap-4 px-4 py-16">
+                {/* Title - Ken Burns scale */}
+                <motion.h1
+                  className="font-gta text-6xl font-normal text-white text-stroke-2 drop-shadow-[0_4px_0_rgba(0,0,0,1)] md:text-9xl"
+                  initial={{ scale: 1.2 }}
+                  animate={{ scale: 1 }}
+                  transition={{ duration: 3, ease: "easeOut" }}
+                >
+                  JEFFREY EPSTEIN
+                </motion.h1>
 
-            {/* Bottom gate */}
-            <motion.div
-              className="flex flex-1 flex-col overflow-hidden bg-void-950"
-              initial={{ y: 0 }}
-              animate={{ y: isEntered ? "100%" : 0 }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as const }}
-            >
-              <div className="relative flex flex-1 flex-col items-center justify-start px-8 pt-8">
-                <div className="relative w-full max-w-2xl">
-                  <p className="font-mono text-[10px] leading-relaxed text-parchment-100/50">
-                    {DOCUMENT_TEXT}
-                  </p>
+                {/* Subtitle */}
+                <p className="font-gta text-lg text-vermillion-500 sm:text-xl md:text-2xl">
+                  The Definitive Edition
+                </p>
+
+                {/* Wanted Stars */}
+                <div className="flex gap-1">
+                  {[0, 1, 2, 3, 4].map((i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0.3 }}
+                      animate={{ opacity: 1 }}
+                      transition={{
+                        delay: 1.5 + i * 0.3,
+                        duration: 0.3,
+                      }}
+                    >
+                      <Star
+                        className="size-8 fill-crime-yellow text-crime-yellow"
+                        strokeWidth={1.5}
+                      />
+                    </motion.div>
+                  ))}
                 </div>
+
+                {/* PRESS START Button */}
+                <motion.button
+                  type="button"
+                  onClick={handlePressStart}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 3.5, duration: 0.5 }}
+                  className="gta-blink mt-6 rounded border-2 border-black bg-black px-8 py-3 font-gta text-lg text-crime-yellow outline outline-2 outline-black"
+                >
+                  PRESS START
+                </motion.button>
               </div>
             </motion.div>
           </motion.div>
