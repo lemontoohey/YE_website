@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import {
-  Cinzel_Decorative,
+  Bodoni_Moda,
   Cormorant_Garamond,
   Courier_Prime,
 } from "next/font/google";
@@ -13,10 +13,10 @@ import {
 } from "@/components/layout";
 import { ParticleBackground } from "@/components/ui";
 
-const cinzelDecorative = Cinzel_Decorative({
+const bodoniModa = Bodoni_Moda({
   subsets: ["latin"],
-  variable: "--font-cinzel",
-  weight: ["400", "700", "900"],
+  variable: "--font-bodoni",
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -65,7 +65,7 @@ export default function RootLayout({
         <PhotographerSchema />
       </head>
       <body
-        className={`${cinzelDecorative.variable} ${cormorant.variable} ${courierPrime.variable} font-body antialiased`}
+        className={`${bodoniModa.variable} ${cormorant.variable} ${courierPrime.variable} font-body antialiased`}
       >
         <LenisProvider>
           <ParticleBackground />

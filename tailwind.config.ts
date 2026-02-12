@@ -1,6 +1,11 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  safelist: [
+    "bg-vermillion-500",
+    "bg-ember-500",
+    "bg-cream-200",
+  ],
   content: [
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
@@ -21,11 +26,17 @@ const config: Config = {
           500: "#C83E36",
           600: "#a62424",
         },
+        ember: {
+          500: "#EA580C",
+        },
+        cream: {
+          200: "#F5F5F4",
+        },
         surface: "rgb(248 250 252)",
         onSurface: "rgb(2 6 23)",
       },
       fontFamily: {
-        heading: ["var(--font-cinzel)", "Georgia", "serif"],
+        heading: ["var(--font-bodoni)", "Bodoni Moda", "Georgia", "serif"],
         body: ["var(--font-cormorant)", "Georgia", "serif"],
         mono: ["var(--font-courier-prime)", "Courier New", "monospace"],
       },

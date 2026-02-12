@@ -10,7 +10,7 @@ html {
 
 @layer base {
   body {
-    @apply bg-void-950 text-parchment-100 antialiased;
+    @apply bg-void-950 text-parchment-100 antialiased text-sm sm:text-base tracking-wide;
     position: relative;
   }
 
