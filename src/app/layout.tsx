@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
 import { Cinzel_Decorative, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
-import { PhotographerSchema, Navbar, Footer } from "@/components/layout";
+import {
+  PhotographerSchema,
+  Navbar,
+  Footer,
+  LenisProvider,
+} from "@/components/layout";
 
 const cinzelDecorative = Cinzel_Decorative({
   subsets: ["latin"],
@@ -50,11 +55,13 @@ export default function RootLayout({
       <body
         className={`${cinzelDecorative.variable} ${cormorant.variable} font-body antialiased`}
       >
-        <div className="flex min-h-screen flex-col">
-          <Navbar />
-          <main className="flex-1 pt-[4.5rem]">{children}</main>
-          <Footer />
-        </div>
+        <LenisProvider>
+          <div className="flex min-h-screen flex-col">
+            <Navbar />
+            <main className="flex-1 pt-[4.5rem]">{children}</main>
+            <Footer />
+          </div>
+        </LenisProvider>
       </body>
     </html>
   );
