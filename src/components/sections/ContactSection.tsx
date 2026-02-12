@@ -1,9 +1,18 @@
+"use client";
+
 import { Mail, Instagram } from "lucide-react";
+import { useSoundEffect } from "@/hooks/useSoundEffect";
 
 const inputBase =
   "w-full border-b border-parchment-100/30 bg-transparent py-3 text-parchment-100 outline-none transition-colors placeholder:text-parchment-100/50 focus:border-vermillion-500";
 
 export function ContactSection() {
+  const playThud = useSoundEffect();
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    playThud();
+  };
   return (
     <section className="border-t border-parchment-100/10 px-4 py-24 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-xl">
@@ -14,7 +23,7 @@ export function ContactSection() {
           Available for commissions in Sydney & Melbourne.
         </p>
 
-        <form className="mt-12" noValidate>
+        <form className="mt-12" noValidate onSubmit={handleSubmit}>
           <div className="space-y-8">
             <div>
               <label htmlFor="name" className="sr-only">

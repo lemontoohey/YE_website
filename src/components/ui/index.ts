@@ -1,2 +1,1 @@
-// UI primitives and design-system components
-export {};
+export { ParticleBackground } from "./ParticleBackground";

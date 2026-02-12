@@ -7,6 +7,7 @@ import {
   Footer,
   LenisProvider,
 } from "@/components/layout";
+import { ParticleBackground } from "@/components/ui";
 
 const cinzelDecorative = Cinzel_Decorative({
   subsets: ["latin"],
@@ -56,7 +57,8 @@ export default function RootLayout({
         className={`${cinzelDecorative.variable} ${cormorant.variable} font-body antialiased`}
       >
         <LenisProvider>
-          <div className="flex min-h-screen flex-col">
+          <ParticleBackground />
+          <div className="relative z-10 flex min-h-screen flex-col">
             <Navbar />
             <main className="flex-1 pt-[4.5rem]">{children}</main>
             <Footer />
