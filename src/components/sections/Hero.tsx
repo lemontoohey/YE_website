@@ -3,9 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-
-const HERO_IMAGE =
-  "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1000&auto=format&fit=crop";
+import { SITE_CONTENT } from "@/lib/data";
 
 const fadeUp = {
   initial: { opacity: 0, y: 24, scale: 0.98 },
@@ -25,10 +23,10 @@ export function Hero() {
           className="max-w-xl"
         >
           <h1 className="font-serif text-4xl font-medium leading-tight text-slate-950 sm:text-5xl md:text-6xl lg:text-7xl">
-            Capturing Architecture & Life.
+            {SITE_CONTENT.hero.title}
           </h1>
           <p className="mt-6 text-lg text-slate-600 sm:text-xl">
-            Sydney based Commercial & Portrait Photography.
+            {SITE_CONTENT.hero.subtitle}
           </p>
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -54,7 +52,7 @@ export function Hero() {
         className="relative aspect-[4/5] w-full lg:aspect-auto lg:h-screen lg:w-[45%] xl:w-[50%]"
       >
         <Image
-          src={HERO_IMAGE}
+          src={SITE_CONTENT.hero.image}
           alt="Portfolio shot – professional photography"
           fill
           priority
