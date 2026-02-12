@@ -13,7 +13,7 @@ export function TheWatchlist() {
   };
 
   return (
-    <section className="relative border-t border-parchment-100/10 bg-blood-950 px-4 py-24 sm:px-6 lg:px-8">
+    <section className="relative border-t border-parchment-100/10 bg-void-950 px-4 py-24 sm:px-6 lg:px-8">
       {/* Noise texture overlay */}
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.06]"

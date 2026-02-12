@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
-import { Cinzel_Decorative, Cormorant_Garamond } from "next/font/google";
+import {
+  Cinzel_Decorative,
+  Cormorant_Garamond,
+  Courier_Prime,
+} from "next/font/google";
 import "./globals.css";
 import {
   PhotographerSchema,
@@ -20,6 +24,13 @@ const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
   variable: "--font-cormorant",
   weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+});
+
+const courierPrime = Courier_Prime({
+  subsets: ["latin"],
+  variable: "--font-courier-prime",
+  weight: ["400", "700"],
   display: "swap",
 });
 
@@ -54,7 +65,7 @@ export default function RootLayout({
         <PhotographerSchema />
       </head>
       <body
-        className={`${cinzelDecorative.variable} ${cormorant.variable} font-body antialiased`}
+        className={`${cinzelDecorative.variable} ${cormorant.variable} ${courierPrime.variable} font-body antialiased`}
       >
         <LenisProvider>
           <ParticleBackground />

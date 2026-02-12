@@ -8,14 +8,17 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        void: {
+          950: "#090205",
+        },
         blood: {
           950: "#1a050b",
         },
         parchment: {
-          100: "#e3d8c8",
+          100: "#E8E1D5",
         },
         vermillion: {
-          500: "#cf2e2e",
+          500: "#C83E36",
           600: "#a62424",
         },
         surface: "rgb(248 250 252)",
@@ -24,6 +27,7 @@ const config: Config = {
       fontFamily: {
         heading: ["var(--font-cinzel)", "Georgia", "serif"],
         body: ["var(--font-cormorant)", "Georgia", "serif"],
+        mono: ["var(--font-courier-prime)", "Courier New", "monospace"],
       },
       spacing: {
         "section": "clamp(4rem, 10vw, 8rem)",

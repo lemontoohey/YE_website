@@ -17,7 +17,7 @@ export function Navbar() {
   return (
     <>
       <header
-        className="fixed top-0 left-0 right-0 z-50 border-b border-parchment-100/10 bg-blood-950/95 backdrop-blur-md"
+        className="fixed top-0 left-0 right-0 z-50 border-b border-parchment-100/10 bg-void-950/95 backdrop-blur-md"
       >
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
           <Link
@@ -76,7 +76,7 @@ export function Navbar() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "tween", duration: 0.25, ease: "easeOut" }}
-            className="fixed top-0 right-0 bottom-0 z-50 w-full max-w-xs border-l border-parchment-100/10 bg-blood-950/98 backdrop-blur-md md:hidden"
+            className="fixed top-0 right-0 bottom-0 z-50 w-full max-w-xs border-l border-parchment-100/10 bg-void-950/98 backdrop-blur-md md:hidden"
           >
             <ul className="flex flex-col gap-1 px-6 pt-20">
               {navLinks.map(({ href, label }) => (

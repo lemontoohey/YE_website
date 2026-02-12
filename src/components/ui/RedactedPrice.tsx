@@ -67,7 +67,7 @@ export function RedactedPrice({ price, label }: RedactedPriceProps) {
   };
 
   return (
-    <div className="relative overflow-hidden rounded border border-parchment-100/20 bg-blood-950/50 p-6">
+    <div className="relative overflow-hidden rounded border border-parchment-100/20 bg-void-950/50 p-6">
       <p className="mb-1 text-xs uppercase tracking-widest text-parchment-100/60">
         {label}
       </p>

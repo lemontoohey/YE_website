@@ -8,7 +8,7 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-parchment-100/10 bg-blood-950">
+    <footer className="border-t border-parchment-100/10 bg-void-950">
       {/* Get in Touch CTA */}
       <div className="border-b border-parchment-100/10 px-4 py-12 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
