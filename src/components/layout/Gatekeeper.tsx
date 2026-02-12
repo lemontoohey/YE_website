@@ -20,20 +20,22 @@ export function Gatekeeper({ children }: { children: React.ReactNode }) {
 
   return (
     <>
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {!isExited && (
           <motion.div
+            key="gatekeeper-overlay"
             initial={{ opacity: 1 }}
+            animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-50 flex flex-col"
+            className="fixed inset-0 z-[100] flex flex-col bg-void-950"
           >
             {/* Top gate */}
             <motion.div
               className="flex flex-1 flex-col overflow-hidden bg-void-950"
               initial={{ y: 0 }}
               animate={{ y: isEntered ? "-100%" : 0 }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as const }}
             >
               <div className="relative flex flex-1 flex-col items-center justify-end px-8 pb-8">
                 <div className="relative w-full max-w-2xl">
@@ -54,7 +56,7 @@ export function Gatekeeper({ children }: { children: React.ReactNode }) {
               <motion.button
                 type="button"
                 onClick={handleDeclassify}
-                initial={{ opacity: 0, scale: 1 }}
+                initial={{ opacity: 0 }}
                 animate={{
                   opacity: 1,
                   scale: [1, 1.02, 1],
@@ -84,7 +86,7 @@ export function Gatekeeper({ children }: { children: React.ReactNode }) {
               className="flex flex-1 flex-col overflow-hidden bg-void-950"
               initial={{ y: 0 }}
               animate={{ y: isEntered ? "100%" : 0 }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as const }}
             >
               <div className="relative flex flex-1 flex-col items-center justify-start px-8 pt-8">
                 <div className="relative w-full max-w-2xl">

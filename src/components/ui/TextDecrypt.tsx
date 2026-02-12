@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const GLYPHS = "█▓▒░│┤╡╢╖╣║╗╝╜╛┐└┴┬├─┼╞╟╚╔╩╦╠═╬╧╨╤╥╙╘╒╓╫╪┘┌";
 
@@ -19,24 +19,31 @@ export function TextDecrypt({
   duration = 1.5,
   className = "",
 }: TextDecryptProps) {
+  const [isMounted, setIsMounted] = useState(false);
   const [displayChars, setDisplayChars] = useState<string[]>([]);
   const [resolvedCount, setResolvedCount] = useState(0);
+  const startedRef = useRef(false);
 
   useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isMounted || startedRef.current) return;
+    startedRef.current = true;
+
     const chars = text.split("");
+    const totalChars = chars.length;
+
     setDisplayChars(chars.map(() => getRandomGlyph()));
 
-    const totalChars = chars.length;
-    const scrambleInterval = 40;
-
-    let elapsed = 0;
+    const scrambleInterval = 35;
+    const startTime = performance.now();
 
     const interval = setInterval(() => {
-      elapsed += scrambleInterval;
-      const targetResolved = Math.min(
-        Math.floor((elapsed / (duration * 1000)) * totalChars),
-        totalChars
-      );
+      const elapsed = performance.now() - startTime;
+      const progress = Math.min(elapsed / (duration * 1000), 1);
+      const targetResolved = Math.floor(progress * totalChars);
 
       setDisplayChars((prev) =>
         prev.map((_, i) =>
@@ -45,13 +52,17 @@ export function TextDecrypt({
       );
       setResolvedCount(targetResolved);
 
-      if (targetResolved >= totalChars) {
+      if (progress >= 1) {
         clearInterval(interval);
       }
     }, scrambleInterval);
 
     return () => clearInterval(interval);
-  }, [text, duration]);
+  }, [isMounted, text, duration]);
+
+  if (!isMounted || displayChars.length === 0) {
+    return <span className={className}>{text}</span>;
+  }
 
   return (
     <span className={className}>
