@@ -67,13 +67,32 @@ export function Gatekeeper({ children }: { children: React.ReactNode }) {
               >
                 JEFFREY EPSTEIN
               </motion.span>
-              <button
+              <motion.button
                 type="button"
                 onClick={handleDeclassify}
-                className="border border-vermillion-500 px-6 py-2 font-mono text-xs tracking-widest text-vermillion-500 transition-colors hover:bg-vermillion-500/10"
+                initial={{ opacity: 0, scale: 1 }}
+                animate={{
+                  opacity: 1,
+                  scale: [1, 1.02, 1],
+                }}
+                transition={{
+                  opacity: { delay: 1.2, duration: 0.4 },
+                  scale: {
+                    duration: 2.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  },
+                }}
+                whileHover={{
+                  backgroundColor: "#cf2e2e",
+                  boxShadow: "0px 0px 25px 5px rgba(255, 226, 204, 0.5)",
+                  transition: { type: "spring", stiffness: 300, damping: 20 },
+                }}
+                whileTap={{ scale: 0.98 }}
+                className="bg-vermillion-600 px-8 py-3 font-heading text-sm tracking-widest text-parchment-100"
               >
                 DECLASSIFY
-              </button>
+              </motion.button>
             </div>
 
             {/* Bottom gate */}

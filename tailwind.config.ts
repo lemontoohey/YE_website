@@ -16,6 +16,7 @@ const config: Config = {
         },
         vermillion: {
           500: "#cf2e2e",
+          600: "#a62424",
         },
         surface: "rgb(248 250 252)",
         onSurface: "rgb(2 6 23)",
