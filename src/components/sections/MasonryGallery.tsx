@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { LuxeImage } from "@/components/ui";
 import { SITE_CONTENT } from "@/lib/data";
 
 const CATEGORIES = [
@@ -62,7 +62,7 @@ export function MasonryGallery() {
               className="group mb-4 break-inside-avoid"
             >
               <div className="relative aspect-[4/5] w-full overflow-hidden">
-                <Image
+                <LuxeImage
                   src={image.src}
                   alt={image.alt}
                   fill

@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
+import { LuxeImage } from "@/components/ui";
 import { motion } from "framer-motion";
 import { SITE_CONTENT } from "@/lib/data";
 
@@ -45,13 +45,8 @@ export function Hero() {
       </div>
 
       {/* Image block */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.98 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.15, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className="relative aspect-[4/5] w-full lg:aspect-auto lg:h-screen lg:w-[45%] xl:w-[50%]"
-      >
-        <Image
+      <div className="relative aspect-[4/5] w-full overflow-hidden lg:aspect-auto lg:h-screen lg:w-[45%] xl:w-[50%]">
+        <LuxeImage
           src={SITE_CONTENT.hero.image}
           alt="Portfolio shot – professional photography"
           fill
@@ -59,7 +54,7 @@ export function Hero() {
           sizes="(max-width: 1024px) 100vw, 50vw"
           className="object-cover"
         />
-      </motion.div>
+      </div>
     </section>
   );
 }
