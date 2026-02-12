@@ -3,7 +3,7 @@ import { SITE_CONTENT } from "@/lib/data";
 
 export function AboutSection() {
   return (
-    <section className="px-4 py-24 sm:px-6 lg:px-8">
+    <section id="about" className="px-4 py-24 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 lg:items-center">
           {/* Text */}

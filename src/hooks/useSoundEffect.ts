@@ -1,24 +1,34 @@
 "use client";
 
 import { useCallback } from "react";
-import useSound from "use-sound";
 
-const THUD_SRC = "/sounds/thud.mp3";
+/**
+ * Programmatic sub bass thud (from scalar_website).
+ * 50Hz sine ramping to 15Hz over 0.6s with lowpass filter.
+ */
+function playThud() {
+  if (typeof window === "undefined") return;
+  try {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Safari webkitAudioContext
+    const ctx = new (window.AudioContext || (window as any).webkitAudioContext)();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    const filter = ctx.createBiquadFilter();
+    osc.type = "sine";
+    osc.frequency.setValueAtTime(50, ctx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(15, ctx.currentTime + 0.6);
+    filter.type = "lowpass";
+    filter.frequency.value = 80;
+    gain.gain.setValueAtTime(0.4, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.6);
+    osc.connect(filter);
+    filter.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start();
+    osc.stop(ctx.currentTime + 0.6);
+  } catch {}
+}
 
 export function useSoundEffect() {
-  const [play] = useSound(THUD_SRC, {
-    volume: 0.6,
-    playbackRate: 1,
-    onloaderror: () => {
-      console.warn("[useSoundEffect] Sound file failed to load:", THUD_SRC);
-    },
-  });
-
-  return useCallback(() => {
-    try {
-      play?.();
-    } catch {
-      // Fail gracefully if play throws (e.g. file missing or 404)
-    }
-  }, [play]);
+  return useCallback(playThud, []);
 }

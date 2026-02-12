@@ -1,20 +1,16 @@
 "use client";
 
 import { Mail, Instagram } from "lucide-react";
-import { useSoundEffect } from "@/hooks/useSoundEffect";
 
 const inputBase =
   "w-full border-b border-parchment-100/30 bg-transparent py-3 text-parchment-100 outline-none transition-colors placeholder:text-parchment-100/50 focus:border-vermillion-500";
 
 export function ContactSection() {
-  const playThud = useSoundEffect();
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    playThud();
   };
   return (
-    <section className="border-t border-parchment-100/10 px-4 py-24 sm:px-6 lg:px-8">
+    <section id="contact" className="border-t border-parchment-100/10 px-4 py-24 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-xl">
         <h2 className="text-center font-heading text-3xl font-medium text-parchment-100 sm:text-4xl">
           Let&apos;s create something timeless.
