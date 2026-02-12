@@ -8,12 +8,21 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        surface: "rgb(248 250 252)", // slate-50
-        onSurface: "rgb(2 6 23)", // slate-950
+        blood: {
+          950: "#1a050b",
+        },
+        parchment: {
+          100: "#e3d8c8",
+        },
+        vermillion: {
+          500: "#cf2e2e",
+        },
+        surface: "rgb(248 250 252)",
+        onSurface: "rgb(2 6 23)",
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
-        serif: ["var(--font-playfair)", "Georgia", "serif"],
+        heading: ["var(--font-cinzel)", "Georgia", "serif"],
+        body: ["var(--font-cormorant)", "Georgia", "serif"],
       },
       spacing: {
         "section": "clamp(4rem, 10vw, 8rem)",

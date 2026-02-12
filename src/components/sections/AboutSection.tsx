@@ -8,10 +8,10 @@ export function AboutSection() {
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 lg:items-center">
           {/* Text */}
           <div>
-            <h2 className="font-serif text-3xl font-medium text-slate-950 sm:text-4xl">
+            <h2 className="font-heading text-3xl font-medium text-parchment-100 sm:text-4xl">
               Behind the Lens
             </h2>
-            <div className="mt-8 space-y-6 text-slate-600">
+            <div className="mt-8 space-y-6 text-parchment-100/80">
               {SITE_CONTENT.about.text.split("\n\n").map((paragraph, i) => (
                 <p key={i} className="leading-relaxed">
                   {paragraph.split(/(Jeffrey Epstein)/g).map((part, j) =>

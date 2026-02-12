@@ -1,16 +1,16 @@
 import { Mail, Instagram } from "lucide-react";
 
 const inputBase =
-  "w-full border-b border-slate-300 bg-transparent py-3 outline-none transition-colors placeholder:text-slate-400 focus:border-black";
+  "w-full border-b border-parchment-100/30 bg-transparent py-3 text-parchment-100 outline-none transition-colors placeholder:text-parchment-100/50 focus:border-vermillion-500";
 
 export function ContactSection() {
   return (
-    <section className="bg-zinc-50 px-4 py-24 sm:px-6 lg:px-8">
+    <section className="border-t border-parchment-100/10 px-4 py-24 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-xl">
-        <h2 className="text-center font-serif text-3xl font-medium text-slate-950 sm:text-4xl">
+        <h2 className="text-center font-heading text-3xl font-medium text-parchment-100 sm:text-4xl">
           Let&apos;s create something timeless.
         </h2>
-        <p className="mt-4 text-center text-slate-600">
+        <p className="mt-4 text-center text-parchment-100/80">
           Available for commissions in Sydney & Melbourne.
         </p>
 
@@ -77,7 +77,7 @@ export function ContactSection() {
 
           <button
             type="submit"
-            className="mt-10 w-full bg-slate-950 px-6 py-4 text-sm font-medium text-white transition-colors hover:bg-slate-800"
+            className="mt-10 w-full bg-vermillion-500 px-6 py-4 text-sm font-medium text-parchment-100 transition-colors hover:bg-vermillion-500/90"
           >
             Send Enquiry
           </button>
@@ -87,7 +87,7 @@ export function ContactSection() {
         <div className="mt-16 flex flex-wrap justify-center gap-6">
           <a
             href="mailto:hello@jeffreyepstein.com.au"
-            className="flex items-center gap-2 text-sm text-slate-600 transition-colors hover:text-slate-950"
+            className="flex items-center gap-2 text-sm text-parchment-100/80 transition-colors hover:text-parchment-100"
             aria-label="Email"
           >
             <Mail className="size-4" />
@@ -95,7 +95,7 @@ export function ContactSection() {
           </a>
           <a
             href="#"
-            className="flex items-center gap-2 text-sm text-slate-600 transition-colors hover:text-slate-950"
+            className="flex items-center gap-2 text-sm text-parchment-100/80 transition-colors hover:text-parchment-100"
             aria-label="Instagram"
           >
             <Instagram className="size-4" />

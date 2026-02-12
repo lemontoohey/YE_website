@@ -1,17 +1,19 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Cinzel_Decorative, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import { PhotographerSchema, Navbar, Footer } from "@/components/layout";
 
-const inter = Inter({
+const cinzelDecorative = Cinzel_Decorative({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-cinzel",
+  weight: ["400", "700", "900"],
   display: "swap",
 });
 
-const playfair = Playfair_Display({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  variable: "--font-playfair",
+  variable: "--font-cormorant",
+  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -46,7 +48,7 @@ export default function RootLayout({
         <PhotographerSchema />
       </head>
       <body
-        className={`${inter.variable} ${playfair.variable} font-sans antialiased`}
+        className={`${cinzelDecorative.variable} ${cormorant.variable} font-body antialiased`}
       >
         <div className="flex min-h-screen flex-col">
           <Navbar />

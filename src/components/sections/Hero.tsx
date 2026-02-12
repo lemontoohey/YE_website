@@ -22,10 +22,10 @@ export function Hero() {
           transition={fadeUp.transition}
           className="max-w-xl"
         >
-          <h1 className="font-serif text-4xl font-medium leading-tight text-slate-950 sm:text-5xl md:text-6xl lg:text-7xl">
+          <h1 className="font-heading text-4xl font-medium leading-tight text-parchment-100 sm:text-5xl md:text-6xl lg:text-7xl">
             {SITE_CONTENT.hero.title}
           </h1>
-          <p className="mt-6 text-lg text-slate-600 sm:text-xl">
+          <p className="mt-6 text-lg text-parchment-100/80 sm:text-xl">
             {SITE_CONTENT.hero.subtitle}
           </p>
           <motion.div
@@ -36,7 +36,7 @@ export function Hero() {
           >
             <Link
               href="/work"
-              className="inline-flex items-center border border-slate-950 px-6 py-3 text-sm font-medium text-slate-950 transition-colors hover:bg-slate-950 hover:text-slate-50"
+              className="inline-flex items-center border border-vermillion-500 px-6 py-3 text-sm font-medium text-parchment-100 transition-colors hover:bg-vermillion-500"
             >
               View Portfolio
             </Link>

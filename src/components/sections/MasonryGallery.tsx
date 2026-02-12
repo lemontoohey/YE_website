@@ -25,7 +25,7 @@ export function MasonryGallery() {
 
   return (
     <section className="px-4 py-section sm:px-6 lg:px-8">
-      <h2 className="mx-auto mb-12 max-w-7xl font-serif text-3xl font-medium text-slate-950 sm:text-4xl">
+      <h2 className="mx-auto mb-12 max-w-7xl font-heading text-3xl font-medium text-parchment-100 sm:text-4xl">
         Selected Works
       </h2>
 
@@ -37,8 +37,8 @@ export function MasonryGallery() {
               key={category}
               type="button"
               onClick={() => setActiveCategory(category)}
-              className={`text-sm font-medium transition-colors hover:text-slate-700 ${
-                activeCategory === category ? "text-slate-950" : "text-slate-400"
+              className={`text-sm font-medium transition-colors hover:text-parchment-100/80 ${
+                activeCategory === category ? "text-parchment-100" : "text-parchment-100/50"
               }`}
             >
               {category}
