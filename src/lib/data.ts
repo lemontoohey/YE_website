@@ -35,6 +35,10 @@ const content: ScrapedContent =
 export const SITE_CONTENT = {
   hero: {
     image: withBase("/images/hero/Creation_of_Jeffrey600x1200.jpg"),
+    /** GTA gatekeeper uses this when available (from scrape-images). Falls back to hero.image. */
+    gtaImage: withBase("/images/gta/loading_screen_1.jpg"),
+    /** Theft Auto America cover for TheftAutoGatekeeper. */
+    theftAutoCover: withBase("/images/theft-auto-cover.jpg"),
     title: content.hero?.title || DEFAULT_CONTENT.hero.title,
     subtitle: content.hero?.subtitle || DEFAULT_CONTENT.hero.subtitle,
   },

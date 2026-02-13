@@ -38,6 +38,9 @@ const config: Config = {
         "crime-yellow": "#FEF200",
         "vice-pink": "#FF00CC",
         "cop-blue": "#0055FF",
+        "gta-pink": "#FF69B4",
+        "gta-yellow": "#F5C400",
+        "gta-black": "#000000",
         surface: "rgb(248 250 252)",
         onSurface: "rgb(2 6 23)",
       },
@@ -45,6 +48,7 @@ const config: Config = {
         heading: ["var(--font-bodoni)", "Bodoni Moda", "Georgia", "serif"],
         body: ["var(--font-cormorant)", "Georgia", "serif"],
         mono: ["var(--font-courier-prime)", "Courier New", "monospace"],
+        gta: ["var(--font-gta)", "sans-serif"],
       },
       spacing: {
         "section": "clamp(4rem, 10vw, 8rem)",

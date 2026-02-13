@@ -6,17 +6,17 @@ import {
   PricingSection,
   TheWatchlist,
 } from "@/components/sections";
-import { Gatekeeper } from "@/components/layout";
+import { TheftAutoGatekeeper } from "@/components/layout";
 
 export default function Home() {
   return (
-    <Gatekeeper>
+    <TheftAutoGatekeeper>
       <Hero />
       <MasonryGallery />
       <AboutSection />
       <ContactSection />
       <PricingSection />
       <TheWatchlist />
-    </Gatekeeper>
+    </TheftAutoGatekeeper>
   );
 }

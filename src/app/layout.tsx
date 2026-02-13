@@ -3,6 +3,7 @@ import {
   Bodoni_Moda,
   Cormorant_Garamond,
   Courier_Prime,
+  Fugaz_One,
 } from "next/font/google";
 import "./globals.css";
 import {
@@ -12,6 +13,13 @@ import {
   LenisProvider,
 } from "@/components/layout";
 import { ParticleBackground } from "@/components/ui";
+
+const fugazOne = Fugaz_One({
+  subsets: ["latin"],
+  variable: "--font-gta",
+  weight: ["400"],
+  display: "swap",
+});
 
 const bodoniModa = Bodoni_Moda({
   subsets: ["latin"],
@@ -65,7 +73,7 @@ export default function RootLayout({
         <PhotographerSchema />
       </head>
       <body
-        className={`${bodoniModa.variable} ${cormorant.variable} ${courierPrime.variable} font-body antialiased`}
+        className={`${fugazOne.variable} ${bodoniModa.variable} ${cormorant.variable} ${courierPrime.variable} font-body antialiased`}
       >
         <LenisProvider>
           <ParticleBackground />

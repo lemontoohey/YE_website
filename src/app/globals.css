@@ -30,3 +30,38 @@ html {
   }
 }
 
+@layer utilities {
+  .text-outline-gta {
+    -webkit-text-stroke: 2px black;
+    text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.5);
+  }
+
+  .gta-blink {
+    animation: gta-blink 1.5s ease-in-out infinite;
+  }
+}
+
+@keyframes gta-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.theft-auto-pulse {
+  animation: theft-auto-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes theft-auto-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
