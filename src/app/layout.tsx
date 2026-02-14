@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import {
+  Archivo_Black,
   Bodoni_Moda,
   Cormorant_Garamond,
   Courier_Prime,
   Fugaz_One,
+  Syne,
 } from "next/font/google";
 import "./globals.css";
 import {
@@ -14,10 +16,24 @@ import {
 } from "@/components/layout";
 import { ParticleBackground } from "@/components/ui";
 
+const syne = Syne({
+  subsets: ["latin"],
+  variable: "--font-syne",
+  weight: ["700", "800"],
+  display: "swap",
+});
+
+const archivoBlack = Archivo_Black({
+  subsets: ["latin"],
+  variable: "--font-archivo",
+  weight: ["400"],
+  display: "swap",
+});
+
 const fugazOne = Fugaz_One({
   subsets: ["latin"],
   variable: "--font-gta",
-  weight: ["400"],
+  weight: "400",
   display: "swap",
 });
 
@@ -73,7 +89,7 @@ export default function RootLayout({
         <PhotographerSchema />
       </head>
       <body
-        className={`${fugazOne.variable} ${bodoniModa.variable} ${cormorant.variable} ${courierPrime.variable} font-body antialiased`}
+        className={`${syne.variable} ${archivoBlack.variable} ${fugazOne.variable} ${bodoniModa.variable} ${cormorant.variable} ${courierPrime.variable} font-body antialiased`}
       >
         <LenisProvider>
           <ParticleBackground />

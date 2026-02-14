@@ -22,7 +22,7 @@ export function Hero() {
           transition={fadeUp.transition}
           className="max-w-xl"
         >
-          <h1 className="font-heading text-4xl font-medium leading-tight text-parchment-100 sm:text-5xl md:text-6xl lg:text-7xl">
+          <h1 className="font-crime text-7xl font-bold leading-tight text-parchment-100 md:text-9xl">
             {SITE_CONTENT.hero.title}
           </h1>
           <p className="mt-6 text-lg text-parchment-100/80 sm:text-xl">

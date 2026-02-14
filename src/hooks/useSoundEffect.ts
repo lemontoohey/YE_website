@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback } from "react";
+import { useCallback, useRef } from "react";
 
 const THUD_SRC =
   (typeof process !== "undefined" && process.env?.NEXT_PUBLIC_BASE_PATH
@@ -95,4 +95,44 @@ export function useSoundEffect(volume?: number) {
 /** Play whoosh (file with synth fallback, same pattern as thud). */
 export function useWhooshOnMount(volume = 0.5) {
   return useCallback(() => playWhooshFile(volume ?? 0.5), [volume]);
+}
+
+/** Low-frequency hum while hovering over the slab. Returns { startHum, stopHum }. */
+export function useHumWhileHover(volume = 0.08) {
+  const nodesRef = useRef<{
+    ctx: AudioContext | null;
+    osc: OscillatorNode | null;
+  }>({ ctx: null, osc: null });
+
+  const startHum = useCallback(() => {
+    if (typeof window === "undefined") return;
+    try {
+      const ctx = new (window.AudioContext || (window as any).webkitAudioContext)();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      const filter = ctx.createBiquadFilter();
+      osc.type = "sine";
+      osc.frequency.value = 55;
+      filter.type = "lowpass";
+      filter.frequency.value = 120;
+      gain.gain.value = volume;
+      osc.connect(filter);
+      filter.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      nodesRef.current = { ctx, osc };
+    } catch {}
+  }, [volume]);
+
+  const stopHum = useCallback(() => {
+    try {
+      const { osc } = nodesRef.current;
+      if (osc) {
+        osc.stop();
+        nodesRef.current = { ctx: null, osc: null };
+      }
+    } catch {}
+  }, []);
+
+  return { startHum, stopHum };
 }

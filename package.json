@@ -7,6 +7,7 @@
     "optimize-images": "node scripts/optimize-images.js",
     "scrape-images": "node scripts/scrape-images.mjs",
     "get-gta-art": "node scripts/get-gta-art.mjs",
+    "scrape-text": "node scripts/scrape-text.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

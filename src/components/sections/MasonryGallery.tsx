@@ -46,7 +46,7 @@ export function MasonryGallery() {
 
   return (
     <section id="work" className="px-4 py-section sm:px-6 lg:px-8">
-      <h2 className="mx-auto mb-12 max-w-7xl font-heading text-3xl font-medium text-parchment-100 sm:text-4xl">
+      <h2 className="mx-auto mb-12 max-w-7xl font-warning text-3xl text-parchment-100 sm:text-4xl">
         Selected Works
       </h2>
 

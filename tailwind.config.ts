@@ -49,6 +49,8 @@ const config: Config = {
         body: ["var(--font-cormorant)", "Georgia", "serif"],
         mono: ["var(--font-courier-prime)", "Courier New", "monospace"],
         gta: ["var(--font-gta)", "sans-serif"],
+        crime: ["var(--font-syne)", "sans-serif"],
+        warning: ["var(--font-archivo)", "sans-serif"],
       },
       spacing: {
         "section": "clamp(4rem, 10vw, 8rem)",

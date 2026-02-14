@@ -12,8 +12,8 @@ export function ContactSection() {
   return (
     <section id="contact" className="border-t border-parchment-100/10 px-4 py-24 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-xl">
-        <h2 className="text-center font-heading text-3xl font-medium text-parchment-100 sm:text-4xl">
-          Let&apos;s create something timeless.
+        <h2 className="text-center font-warning text-3xl text-parchment-100 sm:text-4xl">
+          COMMISSIONS
         </h2>
         <p className="mt-4 text-center text-parchment-100/80">
           Available for commissions in Sydney & Melbourne.
