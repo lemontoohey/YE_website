@@ -14,7 +14,7 @@ export function Footer() {
         <div className="mx-auto max-w-7xl">
           <Link
             href="/contact"
-            className="group inline-flex items-center gap-3 font-heading text-2xl font-medium text-parchment-100 transition-colors hover:text-vermillion-500 sm:text-3xl lg:text-4xl"
+            className="group inline-flex items-center gap-3 font-gta text-2xl text-parchment-100 transition-colors hover:text-vermillion-500 sm:text-3xl lg:text-4xl"
           >
             Get in Touch
             <ArrowRight className="size-6 shrink-0 transition-transform group-hover:translate-x-1 sm:size-7 lg:size-8" />
@@ -27,10 +27,10 @@ export function Footer() {
         <div className="mx-auto grid max-w-7xl gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {/* Contact Info */}
           <div>
-            <h3 className="mb-4 text-xs font-medium tracking-widest uppercase text-parchment-100/50">
+            <h3 className="font-gta mb-4 text-xs tracking-widest uppercase text-parchment-100/50">
               Contact
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-3 font-mono">
               <li>
                 <a
                   href="mailto:hello@jeffreyepstein.com.au"
@@ -58,7 +58,7 @@ export function Footer() {
 
           {/* Social Links */}
           <div>
-            <h3 className="mb-4 text-xs font-medium tracking-widest uppercase text-parchment-100/50">
+            <h3 className="font-gta mb-4 text-xs tracking-widest uppercase text-parchment-100/50">
               Social
             </h3>
             <ul className="flex gap-4">
@@ -78,15 +78,22 @@ export function Footer() {
 
           {/* SEO blurb */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <h3 className="mb-4 text-xs font-medium tracking-widest uppercase text-parchment-100/50">
+            <h3 className="font-gta mb-4 text-xs tracking-widest uppercase text-parchment-100/50">
               About
             </h3>
-            <p className="max-w-sm text-sm leading-relaxed text-parchment-100/80">
+            <p className="font-mono max-w-sm text-sm leading-relaxed text-parchment-100/80">
               Professional photography based in Sydney. Commercial, portrait, and
               editorial work for brands and individuals.
             </p>
           </div>
         </div>
+      </div>
+
+      {/* Copyright */}
+      <div className="border-t border-parchment-100/10 px-4 py-4 sm:px-6 lg:px-8">
+        <p className="font-mono mx-auto max-w-7xl text-xs text-parchment-100/50">
+          © {new Date().getFullYear()} Jeffrey Epstein. All rights reserved.
+        </p>
       </div>
     </footer>
   );

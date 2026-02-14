@@ -22,9 +22,9 @@ export function Navbar() {
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
           <Link
             href="/"
-            className="font-heading text-sm font-medium tracking-[0.28em] uppercase text-parchment-100 transition-colors hover:text-vermillion-500"
+            className="font-gta text-2xl text-white transition-all duration-300 hover:[text-shadow:0_0_12px_rgba(255,255,255,0.6)] sm:text-3xl"
           >
-            Jeffrey Epstein
+            JEFFREY EPSTEIN
           </Link>
 
           {/* Desktop links */}
@@ -33,7 +33,7 @@ export function Navbar() {
               <li key={href}>
                 <Link
                   href={href}
-                  className="text-sm font-medium text-parchment-100/80 transition-colors hover:text-parchment-100"
+                  className="font-warning text-sm uppercase text-white/80 transition-colors hover:text-vermillion-500"
                 >
                   {label}
                 </Link>
@@ -84,7 +84,7 @@ export function Navbar() {
                   <Link
                     href={href}
                     onClick={() => setIsOpen(false)}
-                    className="block py-3 text-lg font-medium text-parchment-100 transition-colors hover:text-vermillion-500"
+                    className="font-warning block py-3 text-lg uppercase text-parchment-100 transition-colors hover:text-vermillion-500"
                   >
                     {label}
                   </Link>
