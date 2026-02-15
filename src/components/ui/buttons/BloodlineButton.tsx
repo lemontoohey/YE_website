@@ -22,11 +22,11 @@ export function BloodlineButton({
       onClick={onClick}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
-      className={`relative overflow-hidden border-0 bg-transparent px-6 py-4 font-heading text-sm tracking-widest text-vermillion-500 ${className}`}
+      className={`relative overflow-hidden border-0 bg-transparent px-6 py-4 font-heading text-sm tracking-widest text-accent-500 ${className}`}
       initial={false}
     >
       <motion.span
-        className="absolute inset-0 z-0 origin-left bg-vermillion-500"
+        className="absolute inset-0 z-0 origin-left bg-accent-500"
         initial={{ scaleX: 0 }}
         animate={{ scaleX: isHovered ? 1 : 0 }}
         transition={{

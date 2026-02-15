@@ -41,7 +41,7 @@ export function Gatekeeper({ children }: { children: React.ReactNode }) {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 1.8, duration: 0.8, ease: "easeOut" }}
-                  className="font-body text-sm tracking-[0.3em] text-parchment-100/90 transition-colors duration-300 hover:text-vermillion-500 hover:[text-shadow:0_0_20px_rgba(200,62,54,0.4)]"
+                  className="font-body text-sm tracking-[0.3em] text-parchment-100/90 transition-colors duration-300 hover:text-accent-500 hover:drop-shadow-[0_0_20px_rgba(255,90,95,0.6)] hover:[text-shadow:0_0_20px_rgba(255,90,95,0.4)] animate-power-surge"
                 >
                   ENTER
                 </motion.button>

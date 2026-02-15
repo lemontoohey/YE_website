@@ -15,7 +15,7 @@ import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const BASE_URL = "https://www.jeffreyepstein.com.au";
-const OUTPUT_PATH = path.join(__dirname, "../lib/scraped_text.json");
+const OUTPUT_PATH = path.join(__dirname, "../src/lib/scraped_text.json");
 
 const PAGES = [
   { url: `${BASE_URL}/`, name: "Homepage" },

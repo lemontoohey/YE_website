@@ -1,13 +1,14 @@
 "use client";
 
 import { Mail, Instagram } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const inputBase =
   "w-full border-b-2 border-white/20 bg-transparent py-4 text-lg font-mono text-white outline-none transition-colors placeholder:uppercase placeholder:tracking-widest placeholder:text-white/30 focus:border-accent-500";
 
 export function ContactSection() {
   const messageRef = useRef<HTMLTextAreaElement>(null);
+  const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -20,6 +21,7 @@ export function ContactSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitted(true);
   };
 
   return (
@@ -37,6 +39,11 @@ export function ContactSection() {
 
         {/* Right - Form */}
         <form className="max-w-xl" noValidate onSubmit={handleSubmit}>
+          {submitted && (
+            <div className="mb-8 rounded border border-accent-500/30 bg-accent-500/10 p-4 font-mono text-sm text-accent-500">
+              Message received. We will contact you via secure channel shortly.
+            </div>
+          )}
           <div className="space-y-8">
             <div>
               <label htmlFor="name" className="sr-only">
@@ -100,9 +107,10 @@ export function ContactSection() {
 
           <button
             type="submit"
-            className="mt-10 w-full rounded-none bg-white px-6 py-4 font-mono text-sm font-medium text-black transition-all hover:bg-accent-500 hover:text-white hover:drop-shadow-[0_0_20px_rgba(255,90,95,0.6)]"
+            disabled={submitted}
+            className="mt-10 w-full rounded-none bg-white px-6 py-4 font-mono text-sm font-medium text-black transition-all hover:bg-accent-500 hover:text-white hover:drop-shadow-[0_0_20px_rgba(255,90,95,0.6)] disabled:cursor-not-allowed disabled:opacity-70"
           >
-            SEND MESSAGE
+            {submitted ? "CASE FILED" : "SEND MESSAGE"}
           </button>
 
           <div className="mt-16 flex flex-wrap gap-6">

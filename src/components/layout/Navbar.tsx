@@ -33,7 +33,7 @@ export function Navbar() {
               <li key={href}>
                 <Link
                   href={href}
-                  className="font-warning text-sm uppercase text-white/80 transition-colors hover:text-vermillion-500"
+                  className="font-warning text-sm uppercase text-white/80 transition-colors hover:text-accent-500"
                 >
                   {label}
                 </Link>
@@ -84,7 +84,7 @@ export function Navbar() {
                   <Link
                     href={href}
                     onClick={() => setIsOpen(false)}
-                    className="font-warning block py-3 text-lg uppercase text-parchment-100 transition-colors hover:text-vermillion-500"
+                    className="font-warning block py-3 text-lg uppercase text-parchment-100 transition-colors hover:text-accent-500"
                   >
                     {label}
                   </Link>

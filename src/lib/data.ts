@@ -27,10 +27,23 @@ const DEFAULT_CONTENT: ScrapedContent = {
 
 import scrapedContentRaw from "./scraped_content.json";
 
+type ScrapedText = { bio?: string };
+let scrapedTextRaw: ScrapedText = {};
+try {
+  scrapedTextRaw = require("./scraped_text.json") as ScrapedText;
+} catch {
+  // scraped_text.json may not exist; run npm run scrape-text
+}
+
 const content: ScrapedContent =
   scrapedContentRaw && typeof scrapedContentRaw === "object" && "hero" in scrapedContentRaw
     ? (scrapedContentRaw as ScrapedContent)
     : DEFAULT_CONTENT;
+
+const aboutText =
+  scrapedTextRaw?.bio && scrapedTextRaw.bio.length > 80
+    ? scrapedTextRaw.bio
+    : content.about?.text || DEFAULT_CONTENT.about.text;
 
 export const SITE_CONTENT = {
   hero: {
@@ -44,7 +57,7 @@ export const SITE_CONTENT = {
   },
   about: {
     image: withBase("/images/about/IncredulityofJeffreyLowRes.jpg"),
-    text: content.about?.text || DEFAULT_CONTENT.about.text,
+    text: aboutText,
   },
   gallery: (content.gallery?.length ? content.gallery : DEFAULT_CONTENT.gallery).map(
     (item, i) => ({

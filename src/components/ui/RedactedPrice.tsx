@@ -115,7 +115,7 @@ export function RedactedPrice({ price, label }: RedactedPriceProps) {
                 </span>
                 <div className="absolute bottom-0 left-0 right-0 h-0.5 overflow-hidden bg-parchment-100/10">
                   <motion.div
-                    className="h-full bg-vermillion-500"
+                    className="h-full bg-accent-500"
                     initial={false}
                     animate={{ width: `${progress}%` }}
                     transition={{ duration: 0.05 }}

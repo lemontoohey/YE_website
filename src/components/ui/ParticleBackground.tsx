@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 const PARTICLE_COUNT = 20;
 
 const COLORS = [
-  "bg-vermillion-500",
+  "bg-accent-500",
   "bg-ember-500",
   "bg-cream-200",
 ] as const;

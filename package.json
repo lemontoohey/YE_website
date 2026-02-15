@@ -8,11 +8,13 @@
     "scrape-images": "node scripts/scrape-images.mjs",
     "get-gta-art": "node scripts/get-gta-art.mjs",
     "scrape-text": "node scripts/scrape-text.mjs",
+    "heist": "node scripts/heist.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@stripe/stripe-js": "^8.7.0",
     "axios": "^1.13.5",
     "cheerio": "^1.2.0",
     "framer-motion": "^12.34.0",
@@ -20,7 +22,8 @@
     "lucide-react": "^0.563.0",
     "next": "14.2.35",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "stripe": "^20.3.1"
   },
   "devDependencies": {
     "@types/node": "^20",

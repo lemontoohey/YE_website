@@ -30,7 +30,7 @@ export function AboutSection() {
           {/* Right - Bio (The Curator's File) */}
           <div className="flex flex-col border-l-2 border-accent-500 pl-8 md:pl-12">
             <h2 className="font-gta mb-8 text-5xl font-normal text-white">
-              THE ARTIST: YE YUAN
+              THE ARTIST: <span className="text-accent-500">YE YUAN</span>
             </h2>
 
             <div className="space-y-8 font-body text-lg leading-loose text-parchment-100 md:text-xl">

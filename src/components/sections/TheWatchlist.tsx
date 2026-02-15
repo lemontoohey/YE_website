@@ -2,12 +2,22 @@
 
 import { useState } from "react";
 
+const DOSSIER_PDF = "/docs/dossier.pdf";
+
 export function TheWatchlist() {
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitted(true);
+    // Trigger download of Collector's Dossier
+    const a = document.createElement("a");
+    a.href = DOSSIER_PDF;
+    a.download = "collectors-dossier.pdf";
+    a.target = "_blank";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
   };
 
   return (
@@ -16,8 +26,8 @@ export function TheWatchlist() {
         <h2 className="font-gta text-4xl font-normal text-white sm:text-5xl md:text-6xl">
           NEWSLETTER
         </h2>
-        <p className="mt-4 font-mono text-accent-500">
-          Updates on new works and exhibitions.
+        <p className="mt-4 font-mono text-sm text-accent-500">
+          Join the mailing list to receive the &apos;Collector&apos;s Dossier&apos; (PDF)—a guide on archiving and investing in contemporary satire.
         </p>
 
         <form
@@ -34,14 +44,16 @@ export function TheWatchlist() {
               name="email"
               placeholder="EMAIL"
               required
-              className="w-full border-b border-white/20 bg-transparent py-3 font-mono text-white outline-none transition-colors placeholder:text-white/30 focus:border-accent-500"
+              disabled={submitted}
+              className="w-full border-b border-white/20 bg-transparent py-3 font-mono text-white outline-none transition-colors placeholder:text-white/30 focus:border-accent-500 disabled:opacity-70"
             />
           </div>
           <button
             type="submit"
-            className="font-mono text-accent-500 transition-all hover:underline hover:drop-shadow-[0_0_12px_rgba(255,90,95,0.6)] sm:flex-shrink-0"
+            disabled={submitted}
+            className="min-w-[200px] rounded border border-dashed border-white/40 bg-transparent px-6 py-3 font-mono text-sm text-accent-500 transition-all hover:border-accent-500 hover:drop-shadow-[0_0_12px_rgba(255,90,95,0.6)] disabled:opacity-70 sm:flex-shrink-0"
           >
-            SUBSCRIBE
+            {submitted ? "DOWNLOAD STARTED" : "REQUEST DOSSIER"}
           </button>
         </form>
       </div>

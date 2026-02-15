@@ -27,7 +27,7 @@ export function SniperButton({
     >
       {/* Corner brackets - animate in from corners */}
       <motion.span
-        className="pointer-events-none absolute left-0 top-0 h-3 w-3 border-l-2 border-t-2 border-vermillion-500"
+        className="pointer-events-none absolute left-0 top-0 h-3 w-3 border-l-2 border-t-2 border-accent-500"
         variants={{
           idle: { opacity: 0, x: -4, y: -4 },
           hover: {
@@ -39,7 +39,7 @@ export function SniperButton({
         }}
       />
       <motion.span
-        className="pointer-events-none absolute right-0 top-0 h-3 w-3 border-r-2 border-t-2 border-vermillion-500"
+        className="pointer-events-none absolute right-0 top-0 h-3 w-3 border-r-2 border-t-2 border-accent-500"
         variants={{
           idle: { opacity: 0, x: 4, y: -4 },
           hover: {
@@ -51,7 +51,7 @@ export function SniperButton({
         }}
       />
       <motion.span
-        className="pointer-events-none absolute bottom-0 left-0 h-3 w-3 border-b-2 border-l-2 border-vermillion-500"
+        className="pointer-events-none absolute bottom-0 left-0 h-3 w-3 border-b-2 border-l-2 border-accent-500"
         variants={{
           idle: { opacity: 0, x: -4, y: 4 },
           hover: {
@@ -63,7 +63,7 @@ export function SniperButton({
         }}
       />
       <motion.span
-        className="pointer-events-none absolute bottom-0 right-0 h-3 w-3 border-b-2 border-r-2 border-vermillion-500"
+        className="pointer-events-none absolute bottom-0 right-0 h-3 w-3 border-b-2 border-r-2 border-accent-500"
         variants={{
           idle: { opacity: 0, x: 4, y: 4 },
           hover: {

@@ -14,7 +14,7 @@ export function Footer() {
           <li>
             <a
               href="mailto:hello@jeffreyepstein.com.au"
-              className="flex items-center gap-2 transition-colors hover:text-vermillion-500"
+              className="flex items-center gap-2 transition-colors hover:text-accent-500"
             >
               <Mail className="size-4 shrink-0" />
               hello@jeffreyepstein.com.au
@@ -23,7 +23,7 @@ export function Footer() {
           <li>
             <a
               href="tel:+61400000000"
-              className="flex items-center gap-2 transition-colors hover:text-vermillion-500"
+              className="flex items-center gap-2 transition-colors hover:text-accent-500"
             >
               <Phone className="size-4 shrink-0" />
               +61 400 000 000
@@ -42,7 +42,7 @@ export function Footer() {
               <a
                 href={href}
                 aria-label={label}
-                className="flex size-10 items-center justify-center rounded-full border border-white/20 text-white/60 transition-colors hover:border-vermillion-500 hover:text-vermillion-500"
+                className="flex size-10 items-center justify-center rounded-full border border-white/20 text-white/60 transition-colors hover:border-accent-500 hover:text-accent-500"
               >
                 <Icon className="size-4" />
               </a>

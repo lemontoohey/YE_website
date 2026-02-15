@@ -25,13 +25,23 @@ export function TheftAutoGatekeeper({ children }: { children: React.ReactNode })
   const playThud = useSoundEffect(0.6);
   const playWhoosh = useWhooshOnMount(0.5);
 
-  const springX = useSpring(0.5, SPRING_CONFIG);
-  const springY = useSpring(0.5, SPRING_CONFIG);
+  const springX = useSpring(0.08, SPRING_CONFIG);
+  const springY = useSpring(0.08, SPRING_CONFIG);
 
   useEffect(() => setMounted(true), []);
   useEffect(() => {
     if (mounted) playWhoosh();
   }, [mounted, playWhoosh]);
+
+  // Spotlight travels from top-left to face of figure (by car hood)
+  useEffect(() => {
+    if (!mounted) return;
+    const t = setTimeout(() => {
+      springX.set(0.78);
+      springY.set(0.45);
+    }, 100);
+    return () => clearTimeout(t);
+  }, [mounted, springX, springY]);
 
   const handleMouseMove = useCallback(
     (e: React.MouseEvent) => {
@@ -74,7 +84,7 @@ export function TheftAutoGatekeeper({ children }: { children: React.ReactNode })
             <motion.button
               type="button"
               onClick={handleEnter}
-              className="font-gta text-4xl text-white transition-all duration-300 hover:text-vermillion-500 hover:drop-shadow-[0_0_25px_rgba(200,62,54,0.8)] bg-transparent border-none outline-none"
+              className="font-gta text-4xl text-white transition-all duration-300 hover:text-accent-500 hover:drop-shadow-[0_0_25px_rgba(255,90,95,0.6)] bg-transparent border-none outline-none animate-power-surge"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -133,6 +143,13 @@ function ArtWithSpotlight({
         </div>
       </div>
 
+      {/* Searchlight tint overlay - faint accent at outer edge */}
+      <div
+        className="pointer-events-none absolute inset-0 flex items-center pr-4 md:pr-12"
+        style={{
+          background: `radial-gradient(circle ${SPOTLIGHT_RADIUS + 80}px at ${x * 100}% ${y * 100}%, transparent 40%, rgba(255, 90, 95, 0.06) 70%, rgba(255, 90, 95, 0.03) 100%)`,
+        }}
+      />
       {/* Bright image - revealed only in spotlight circle (mask) */}
       <div
         className="pointer-events-none absolute inset-0 flex items-center pr-4 md:pr-12"

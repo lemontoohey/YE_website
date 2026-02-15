@@ -31,7 +31,7 @@ export function ProtocolSection() {
         <h2 className="font-gta text-3xl text-white sm:text-4xl">
           OPERATIONAL PROTOCOLS
         </h2>
-        <p className="mt-2 font-mono text-sm text-vermillion-500">
+        <p className="mt-2 font-mono text-sm text-accent-500">
           Shipping, Handling, and Chain of Custody.
         </p>
 
@@ -44,7 +44,7 @@ export function ProtocolSection() {
               <button
                 type="button"
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="flex w-full items-center justify-between gap-4 py-4 text-left font-warning text-white transition-colors hover:text-vermillion-500"
+                className="flex w-full items-center justify-between gap-4 py-4 text-left font-warning text-white transition-colors hover:text-accent-500"
               >
                 <span>{item.q}</span>
                 <span

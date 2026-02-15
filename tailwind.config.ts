@@ -2,7 +2,7 @@ import type { Config } from "tailwindcss";
 
 const config: Config = {
   safelist: [
-    "bg-vermillion-500",
+    "bg-accent-500",
     "bg-ember-500",
     "bg-cream-200",
     "bg-crime-yellow",
@@ -25,9 +25,9 @@ const config: Config = {
         parchment: {
           100: "#E8E1D5",
         },
-        vermillion: {
-          500: "#C83E36",
-          600: "#a62424",
+        accent: {
+          500: "#FF5A5F",
+          glow: "rgba(255, 90, 95, 0.4)",
         },
         ember: {
           500: "#EA580C",
@@ -55,6 +55,25 @@ const config: Config = {
       spacing: {
         "section": "clamp(4rem, 10vw, 8rem)",
         "block": "clamp(1.5rem, 4vw, 3rem)",
+      },
+      keyframes: {
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+        "power-surge": {
+          "0%, 90%, 100%": { opacity: "1" },
+          "93%": { opacity: "0.9" },
+          "96%": { opacity: "1" },
+        },
+      },
+      animation: {
+        marquee: "marquee 25s linear infinite",
+        "power-surge": "power-surge 4s ease-in-out infinite",
+      },
+      boxShadow: {
+        "accent-glow": "0 0 25px rgba(255, 90, 95, 0.6)",
+        "accent-glow-lg": "0 0 40px rgba(255, 90, 95, 0.5)",
       },
     },
   },

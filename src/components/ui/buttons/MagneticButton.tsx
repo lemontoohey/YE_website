@@ -56,7 +56,7 @@ export function MagneticButton({
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onMouseEnter={() => playThud()}
-      className={`relative overflow-hidden rounded-full border-[0.5px] border-parchment-100/30 bg-transparent px-6 py-3 font-heading text-sm tracking-widest text-parchment-100 transition-colors duration-300 hover:border-transparent hover:bg-gradient-to-r hover:from-vermillion-500 hover:to-ember-500 hover:text-void-950 ${className}`}
+      className={`relative overflow-hidden rounded-full border-[0.5px] border-parchment-100/30 bg-transparent px-6 py-3 font-heading text-sm tracking-widest text-parchment-100 transition-all duration-300 hover:border-transparent hover:bg-gradient-to-r hover:from-accent-500 hover:to-ember-500 hover:text-void-950 hover:drop-shadow-[0_0_20px_rgba(255,90,95,0.6)] ${className}`}
     >
       <motion.span
         className="inline-block"
