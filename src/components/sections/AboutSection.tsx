@@ -28,7 +28,7 @@ export function AboutSection() {
           </div>
 
           {/* Right - Bio (The Curator's File) */}
-          <div className="flex flex-col border-l-2 border-vermillion-500 pl-8 md:pl-12">
+          <div className="flex flex-col border-l-2 border-accent-500 pl-8 md:pl-12">
             <h2 className="font-gta mb-8 text-5xl font-normal text-white">
               THE ARTIST: YE YUAN
             </h2>
@@ -50,7 +50,7 @@ export function AboutSection() {
               </p>
             </div>
 
-            <h3 className="mt-10 font-bold uppercase tracking-[0.2em] text-sm text-vermillion-500">
+            <h3 className="mt-10 font-bold uppercase tracking-[0.2em] text-sm text-accent-500">
               OUR VISION
             </h3>
             <div className="mt-4 space-y-8 font-body text-lg leading-loose text-parchment-100 md:text-xl">
@@ -72,7 +72,7 @@ export function AboutSection() {
               <ul className="grid grid-cols-1 gap-y-2 gap-x-4 font-mono text-sm text-parchment-100/80 md:grid-cols-2">
                 {OFFERINGS.map((item) => (
                   <li key={item} className="flex items-center gap-2">
-                    <span className="text-vermillion-500">+</span>
+                    <span className="text-accent-500">+</span>
                     {item}
                   </li>
                 ))}
